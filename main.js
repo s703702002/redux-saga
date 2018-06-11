@@ -15,12 +15,9 @@ const store = createStore(
     reducer,
     applyMiddleware(sagaMiddleware)
 )
-
-const action = type => store.dispatch({type})
-
-
 sagaMiddleware.run(rootSaga);
 
+const action = type => store.dispatch({type})
 
 function render() {
   ReactDOM.render(
@@ -28,7 +25,8 @@ function render() {
       value={store.getState()}
       onIncrement={() => action('INCREMENT')}
       onDecrement={() => action('DECREMENT')}
-      onIncrementAsync={() => action('INCREMENT_ASYNC')} />,
+      onIncrementAsync={() => action('INCREMENT_ASYNC')}
+      onHello={() => action('HELLO_SAGA')} />,
     document.getElementById('root')
   )
 }
