@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
   mode: 'development',
@@ -59,6 +60,7 @@ module.exports = {
       chunkFilename: '[id].css',
     }),
   ],
+  // externals: [nodeExternals()],
   // devServer: {
   //   contentBase: path.join(__dirname, './'),
   //   compress: true,
