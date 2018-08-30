@@ -16,7 +16,7 @@ const store = createStore(counterApp, preloadedState)
 
 hydrate(
   <Provider store={store}>
-    <App store={store} />
+    <App />
   </Provider>,
   document.getElementById('root')
 );

@@ -1,14 +1,23 @@
 import React from 'react';
 import Counter from '../components/Counter';
+import { connect } from 'react-redux';
 
-const App = ({ store }) => {
+const App = (props) => {
+    console.log('props',props);
     return (
         <Counter 
-            value={store.getState().counter}
-            onIncrement={() => store.dispatch({ type: 'INCREMENT' })}
-            onDecrement={() => store.dispatch({ type: 'DECREMENT' })}
+            value={props.counter}
+            onIncrement={() => props.dispatch({ type: 'INCREMENT' })}
+            onDecrement={() => props.dispatch({ type: 'DECREMENT' })}
         />
     )
 };
 
-export default App;
+const mapStateToProps = (state, ownProps) => {
+    const counter = state;
+    return {
+        counter,
+    }
+}
+
+export default connect(mapStateToProps)(App);
